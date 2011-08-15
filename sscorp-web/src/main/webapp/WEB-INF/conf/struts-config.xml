@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+    <form-beans>
+        <form-bean name="userQueryForm"
+                   type="org.apache.struts.action.DynaActionForm">
+            <form-property name="subject" type="java.lang.String"></form-property>
+            <form-property name="query" type="java.lang.String"></form-property>
+            <form-property name="whereAboutsOfCompany" type="java.lang.String"></form-property>
+            <form-property name="companyName" type="java.lang.String"></form-property>
+            <form-property name="companyWebsite" type="java.lang.String"></form-property>
+            <form-property name="companyEmailId" type="java.lang.String"></form-property>
+            <form-property name="fullName" type="java.lang.String"></form-property>
+            <form-property name="phoneNo" type="java.lang.String"></form-property>
+        </form-bean>
+    </form-beans>
+
+    <global-exceptions></global-exceptions>
+
+    <global-forwards></global-forwards>
+
+    <action-mappings>
+        <action path="/home"
+                forward="/jsp/sscorp/profileTabs.jsp"/>
+                
+        <action path="/profile"
+                forward="/jsp/sscorp/companyProfile.jsp"/>
+
+        <action path="/aboutUs"
+                forward="/jsp/sscorp/aboutUs.jsp"/>
+
+        <action path="/achievements"
+                forward="/jsp/sscorp/achievements.jsp"/>
+
+        <action path="/infrastructure"
+                forward="/jsp/sscorp/infrastructure.jsp"/>
+
+        <action path="/leadership"
+                forward="/jsp/sscorp/leadership.jsp"/>
+
+        <action path="/missionVision"
+                forward="/jsp/sscorp/missionVision.jsp"/>
+
+        <action path="/dispProductCat"
+                forward="/jsp/sscorp/productCategory.jsp"/>
+
+        <action path="/dispProducts"
+                forward="/jsp/sscorp/productList.jsp"/>
+
+        <action path="/dispProjectCat"
+                forward="/jsp/sscorp/projectCategory.jsp"/>
+
+        <action path="/dispProjects"
+                forward="/jsp/sscorp/projects.jsp"/>
+
+        <action path="/contactUs"
+                forward="/jsp/sscorp/contactUs.jsp"/>
+
+        <action path="/saveUserQuery"
+                type="com.superconduits.web.action.SaveUserQueryAction"
+                name="userQueryForm">
+            <forward name="userQueryLogged" path="/jsp/layout/blank.jsp"/>
+        </action>
+    </action-mappings>
+
+    <controller processorClass="com.superconduits.web.controller.SSCorpRequestProcessor"/>
+
+    <message-resources parameter="com/superconduits/web/config/ApplicationResource"/>
+
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="com.superconduits.web.plugin.Log4jInitializor"></plug-in>
+    <!--<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/conf/validator-rules.xml,/WEB-INF/conf/validation.xml"/>
+    </plug-in>-->
+    <plug-in className="com.superconduits.web.plugin.JPAInitializor"></plug-in>
+    <plug-in className="com.superconduits.web.plugin.CompanyProfileLoader"></plug-in>
+    <plug-in className="com.superconduits.web.plugin.MenuLoader"></plug-in>
+    <plug-in className="com.superconduits.web.plugin.ProductLoader"></plug-in>
+    <plug-in className="com.superconduits.web.plugin.ProjectLoader"></plug-in>
+    <plug-in className="com.superconduits.web.plugin.BannerImagesNameLoader"></plug-in>
+</struts-config>

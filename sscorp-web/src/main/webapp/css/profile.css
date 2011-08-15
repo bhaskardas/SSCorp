@@ -1,0 +1,168 @@
+/*
+    Document   : profile
+    Created on : 31 Jan, 2011, 12:32:18 AM
+    Author     : bhaskar
+    Description:
+        Stylesheet for company profile pages.
+*/
+
+div.profileMainDiv{
+    overflow: hidden;
+    position: relative;
+    clear: both;
+    height: 100%;
+    background-color: #153e7e;
+}
+
+div.profileContentDiv{
+    margin: 1px;
+    /*border: 1px solid #00317F;*/
+    padding: 4px;
+    float: left;
+    position: relative;
+    width: 72%;
+}
+
+div.profileMenuDiv{
+    margin: 1px;
+    padding: 4px;
+    float: right;
+    text-align: left;
+    position: relative;
+    width: 25%;
+    overflow: auto;
+}
+
+div.profileMenuHeader{
+    text-align: center;
+    font-weight: bold;
+    margin: 7px 0 0 0;
+    padding: 2px;
+    background-color: #e6bd7e;
+    color: #000;
+    -moz-border-radius: 0.8em 0.8em 0 0;
+    -webkit-border-radius : 0.8em 0.8em 0 0;
+    border-radius : 0.8em 0.8em 0 0;
+}
+
+div.profiles{
+    padding: 2px;
+    background-color: #FAF6ED;
+    border-bottom: 1px dotted #58595B;
+}
+
+div.profiles > a:link{
+    color: #153E7E;
+    text-decoration: none;
+}
+
+div.profiles > a:visited{
+
+}
+
+div.profiles > a:hover{
+    text-decoration: underline;
+}
+
+.profileContent{
+    margin: 2px;
+    border: 1px solid #FAF6ED;
+    padding: 5px 8px 5px 8px;
+    text-align: left;
+    color: #001D4C;
+    background-color: #FAF6ED;
+}
+
+.profileHeader{
+    margin: 0px;
+    padding: 2px 2px 2px 4px;
+    border-bottom: 0px solid #e6bd7e;
+    font-size:12px;
+    background-color: #e6bd7e;
+    color: #000;
+    font-weight: bold;
+}
+
+div.aboutUsContent{
+    color: #001D4C;
+    max-height: 400px;
+    overflow: auto;
+    font-size: 12px;
+}
+
+.mvContent{
+    font-style: italic;
+    font-size: 12px;
+}
+
+div.leadershipContent{
+    background-color: #FAF6ED;
+    max-height: 200px;
+    overflow: auto;
+    font-size: 12px;
+    opacity: 0.65;
+    filter: alpha(opacity=65);
+}
+
+.empName{
+    padding: 5px;
+    font-weight: bold;
+    color: #000;
+    font-size: 14px;
+}
+
+.designation{
+    padding: 5px;
+    font-weight: bold;
+    font-style: italic;
+    color: #000;
+}
+
+.leaderInfo{
+    padding: 5px;
+}
+
+div.achievementsDesc{
+    font-weight: bold;
+    font-style: italic;
+}
+
+div.mainAchievement {
+    max-height: 400px;
+    overflow: auto;
+}
+
+div.mainAchievement dd{
+    margin: 1px;
+    padding: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: left;
+}
+
+div.mainAchievement dt{
+    margin-left: 20px;
+    font-style: italic;
+}
+
+div#aboutUs{
+    background-image: url('../images/about_us.jpg');
+}
+
+div#leadership{
+	background-image: url('../images/leadership.jpg');
+}
+
+div#missionVission{
+	background-image: url('../images/mission-and-vision.jpg');
+	height: 250px;
+}
+
+div#achievements{
+	background-image: url('../images/achievements.jpg');
+}
+
+div.mainAchievement > dl > dd{
+	opacity: 0.8;
+    filter: alpha(opacity=80);
+}

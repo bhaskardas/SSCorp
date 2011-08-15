@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+  <persistence-unit name="sscorpPersistenceUnit" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+    <!-- Menu table entry -->
+    <class>com.superconduits.core.to.menu.MenuTO</class>
+    <class>com.superconduits.core.to.menu.SubmenuTO</class>
+    <class>com.superconduits.core.to.menu.AdditionalMenuUrlTO</class>
+
+    <!-- Product Table entry -->
+    <class>com.superconduits.core.to.product.ProductCategoryTO</class>
+    <class>com.superconduits.core.to.product.ProductEntityTypeTO</class>
+    <class>com.superconduits.core.to.product.ProductFeaturesTO</class>
+    <class>com.superconduits.core.to.product.ProductFeatureMappingTO</class>
+    
+
+    <!-- Project Table entry -->
+    <class>com.superconduits.core.to.project.ProjectCategoryTO</class>
+    <class>com.superconduits.core.to.project.ProjectTO</class>
+
+    <!-- Other table entry -->
+    <class>com.superconduits.core.to.CompanyProfileTO</class>
+    <class>com.superconduits.core.to.EmailTO</class>
+    <class>com.superconduits.core.to.DesignationTO</class>
+    <class>com.superconduits.core.to.AddressTO</class>
+    <class>com.superconduits.core.to.AchievementsTO</class>
+    <class>com.superconduits.core.to.EmployeeTO</class>
+    <class>com.superconduits.core.to.LeadershipDescTO</class>
+    <class>com.superconduits.core.to.PhoneNumberTO</class>
+    <class>com.superconduits.core.to.PhoneTypeTO</class>
+    <class>com.superconduits.core.to.QueryDetailsTO</class>
+
+    <properties>
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.dialect"
+                value="org.hibernate.dialect.MySQLDialect"/>
+      <property name="hibernate.c3p0.acquire_increment" value="3"/>
+            <property name="hibernate.c3p0.min_size" value="5"/>
+            <property name="hibernate.c3p0.max_size" value="20"/>
+            <property name="hibernate.c3p0.timeout" value="1800"/>
+            <property name="hibernate.c3p0.max_statements" value="50"/>
+            <property name="hibernate.connection.provider_class"
+                    value="org.hibernate.connection.C3P0ConnectionProvider"/>
+      <property name="hibernate.connection.driver_class"
+                value="com.mysql.jdbc.Driver"/>
+      <property name="hibernate.dialect"
+                value="org.hibernate.dialect.MySQLDialect"/>
+      <property name="hibernate.connection.url"
+                value="jdbc:mysql://192.168.0.104:3306/sscorp"/>
+      <property name="hibernate.connection.username"
+                value="root"/>
+      <property name="hibernate.connection.password"
+                value="rana@1stpass"/>
+    </properties>
+  </persistence-unit>
+</persistence>

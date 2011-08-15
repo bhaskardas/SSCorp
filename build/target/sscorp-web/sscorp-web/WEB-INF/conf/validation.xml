@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE form-validation PUBLIC
+"-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+"http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+
+<form-validation>
+    <formset>
+        <form name="userQueryForm">
+            <field
+                property="subject"
+                depends="required,maxlength">
+                <arg0 key="userQuery.subject"/>
+                <arg1 key="${var:maxLength}" name="maxlength" resource="false"/>
+                <var>
+                    <var-name>maxLength</var-name>
+                    <var-value>200</var-value>
+                </var>
+            </field>
+            <field
+                property="query"
+                depends="required,maxlength">
+                <arg0 key="userQuery.query"/>
+                <arg1 key="${var:maxLength}" name="maxlength" resource="false"/>
+                <var>
+                    <var-name>maxLength</var-name>
+                    <var-value>3000</var-value>
+                </var>
+            </field>
+            <field
+                property="whereAboutsOfCompany"
+                depends="required,maxlength">
+                <arg0 key="userQuery.whereAboutsOfCompany"/>
+                <arg1 key="${var:maxLength}" name="maxlength" resource="false"/>
+                <var>
+                    <var-name>maxLength</var-name>
+                    <var-value>500</var-value>
+                </var>
+            </field>
+            <field
+                property="companyName"
+                depends="maxlength">
+                <arg0 key="userQuery.companyName"/>
+                <arg1 key="${var:maxLength}" name="maxlength" resource="false"/>
+                <var>
+                    <var-name>maxLength</var-name>
+                    <var-value>50</var-value>
+                </var>
+            </field>
+            <field
+                property="companyWebsite"
+                depends="maxlength">
+                <arg0 key="userQuery.companyWebsite"/>
+                <arg1 key="${var:maxLength}" name="maxlength" resource="false"/>
+                <var>
+                    <var-name>maxLength</var-name>
+                    <var-value>50</var-value>
+                </var>
+            </field>
+            <field
+                property="companyEmailId"
+                depends="required,email,maxlength">
+                <arg0 key="userQuery.companyEmailId"/>
+                <arg1 key="${var:maxLength}" name="maxlength" resource="false"/>
+                <var>
+                    <var-name>maxLength</var-name>
+                    <var-value>200</var-value>
+                </var>
+            </field>
+            <field
+                property="fullName"
+                depends="required,maxlength">
+                <arg0 key="userQuery.fullName"/>
+                <arg1 key="${var:maxLength}" name="maxlength" resource="false"/>
+                <var>
+                    <var-name>maxLength</var-name>
+                    <var-value>200</var-value>
+                </var>
+            </field>
+            <field
+                property="phoneNo"
+                depends="maxlength,mask">
+                <arg0 key="userQuery.phoneNo"/>
+                <arg1 key="${var:maxLength}" name="maxlength" resource="false"/>
+                <msg name="mask" key="userQuery.phoneNo.mask"/>
+                <var>
+                    <var-name>maxLength</var-name>
+                    <var-value>20</var-value>
+                </var>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-9]*$</var-value>
+                </var>
+            </field>
+        </form>
+    </formset>
+</form-validation>

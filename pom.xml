@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <name>SSCorp</name>
+    <groupId>bhaskar.sscorp</groupId>
+    <artifactId>sscorp</artifactId>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <description>Main POM for Super Sales Corp Code. It includes the core and the web module.</description>
+
+    <properties>
+        <target.dir>${env.TARGET_DIR}/target/${project.artifactId}</target.dir>
+        <resource.dir>${project.basedir}/src/main/resources</resource.dir>
+        <artifact.name>${project.artifactId}</artifact.name>
+        <deploy.dir.path>/usr/local/apache-tomcat-6.0.20/webapps</deploy.dir.path>
+
+        <!-- Servlet Properties -->
+        <servlet-api.version>2.5</servlet-api.version>
+        <jsp-api.version>2.0</jsp-api.version>
+        <jstl.version>1.2</jstl.version>
+        <taglib.standard.version>1.1.2</taglib.standard.version>
+
+        <!-- Testing Properties -->
+        <junit.version>4.5</junit.version>
+
+        <!-- Application Properties -->
+        <sscorp-core.version>1.0.0</sscorp-core.version>
+        <sscorp-web.version>1.0.0</sscorp-web.version>
+        <utilities.version>1.0.0</utilities.version>
+
+        <!-- Struts Dependency -->
+        <struts.version>1.2.9</struts.version>
+
+        <!-- DWR Dependency -->
+        <dwr.version>2.0.2</dwr.version>
+
+        <!-- Logging Dependency -->
+        <log4j.version>1.2.15</log4j.version>
+        <slf4j.version>1.6.0</slf4j.version>
+
+        <!-- Hibernate Dependency -->
+        <!--<hibernate.version>3.2.7.ga</hibernate.version>-->
+        <hibernate-validator.version>3.0.0.GA</hibernate-validator.version>
+        <hibernate-annotations.version>3.4.0.GA</hibernate-annotations.version>
+        <hibernate-commons.version>3.3.0.ga</hibernate-commons.version>
+        <hibernate-core.version>3.3.2.GA</hibernate-core.version>
+        <hibernate-em.version>3.4.0.GA</hibernate-em.version>
+        <mysql-connectorJ.version>5.1.9</mysql-connectorJ.version>
+        
+        <!-- Connection Pooling Dependency -->
+        <c3p0.version>0.9.1.2</c3p0.version>
+
+        <!-- Other Dependency -->
+        <cglib-nodep.version>2.2</cglib-nodep.version>
+        
+        <!-- JSON Dependency -->
+        <json.version>1.0.0</json.version>
+    </properties>
+
+    <developers>
+        <developer>
+            <id>bhaskar.aries</id>
+            <name>Bhaskar Das</name>
+            <email>bhaskar.aries@gmail.com, bhaskar.das@email.com</email>
+            <roles>
+                <role>All</role>
+            </roles>
+            <organization>Freelance</organization>
+            <timezone>+5.5</timezone>
+        </developer>
+    </developers>
+
+    <!-- Define all modules which needs to be part of the build. -->
+    <modules>
+        <module>/sscorp-core</module>
+        <module>/sscorp-web</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Application dependency -->
+            <dependency>
+                <groupId>bhaskar.sscorp</groupId>
+                <artifactId>sscorp-core</artifactId>
+                <version>${sscorp-core.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>bhaskar.utilities</groupId>
+                <artifactId>utilities</artifactId>
+                <version>${utilities.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <!-- App dependency End-->
+
+            <!-- Servlet Dependency -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jsp-api</artifactId>
+                <version>${jsp-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>${jstl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>taglibs</groupId>
+                <artifactId>standard</artifactId>
+                <version>${taglib.standard.version}</version>
+            </dependency>
+
+            <!-- Logging Dependency -->
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <!-- Struts 1.2.9 dependencies -->
+            <dependency>
+                <groupId>struts</groupId>
+                <artifactId>struts</artifactId>
+                <version>${struts.version}</version>
+                <!--<scope>compile</scope>-->
+            </dependency>
+
+            <!-- DWR Dependency -->
+            <dependency>
+                <groupId>org.directwebremoting</groupId>
+                <artifactId>dwr</artifactId>
+                <version>${dwr.version}</version>
+            </dependency>
+
+            <!-- Hibernate Dependency-->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernate-core.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>javax.transaction</groupId>
+                        <artifactId>jta</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-annotations</artifactId>
+                <version>${hibernate-annotations.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-commons-annotations</artifactId>
+                <version>${hibernate-commons.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>${hibernate-em.version}</version>
+            </dependency>
+            
+            <!-- Connection Pooling Dependency -->
+			<dependency>
+                <groupId>c3p0</groupId>
+                <artifactId>c3p0</artifactId>
+                <version>${c3p0.version}</version>
+            </dependency>
+            
+            <!-- MySql ConnectorJ -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connectorJ.version}</version>
+            </dependency>
+
+            <!-- Testing Dependency -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            
+            <!-- JSON Dependency -->
+            <dependency>
+            	<groupId>bhaskar.org.json</groupId>
+				<artifactId>json-object</artifactId>
+				<version>${json.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>centralRepository</id>
+            <name>Maven Repository</name>
+            <layout>default</layout>
+            <url>http://repo1.maven.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>centralRepository</id>
+            <name>Maven Plugin</name>
+            <url>http://repo1.maven.org/maven2</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <build>
+        <finalName>${artifact.name}</finalName>
+        <directory>${target.dir}</directory>
+        <testOutputDirectory>${target.dir}/test-classes</testOutputDirectory>
+        <sourceDirectory>${project.basedir}/src/main/java/</sourceDirectory>
+        <testSourceDirectory>${project.basedir}/src/test/java/</testSourceDirectory>
+        <outputDirectory>${target.dir}/classes</outputDirectory>
+        <resources>
+            <resource>
+                <directory>${resource.dir}</directory>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>${project.basedir}/src/test/resources</directory>
+            </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <debug>true</debug>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.0.2</version>
+                <configuration>
+                    <warSourceDirectory>${basedir}/src/main/webapp</warSourceDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.0.4</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>2.4.3</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>report-only</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>2.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>1.2</version>
+                <configuration>
+                    <threshold>Normal</threshold>
+                    <effort>Default</effort>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
+</project>

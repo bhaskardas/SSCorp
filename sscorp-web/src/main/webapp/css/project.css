@@ -1,0 +1,170 @@
+/*
+    Document   : project
+    Created on : 28 Nov, 2010, 10:01:14 PM
+    Author     : bhaskar
+    Description:
+        Stylesheet for the project related pages in Super Sales Corporation.
+*/
+
+.projCatContainer{
+    margin: 2px;
+    border: 0px solid #EE0000;
+    padding: 4px;
+    height: 300px;
+    position: relative;
+    font-size: 8px;
+    text-transform: capitalize;
+    overflow: hidden;
+}
+
+.projCat_item{
+    margin: 1px;
+    padding: 2px;
+    height: 98%;
+    text-align: center;
+    width: 11.7%;
+    float: left;
+    border-bottom: 1px solid #FAF6ED;
+    border-right: 1px solid #FAF6ED;
+    position: relative;
+    background-color: #f2debe;
+    -moz-box-shadow: 3px -3px 10px #333;
+    -webkit-box-shadow: 3px -3px 10px #333;
+    box-shadow: 3px -3px 10px #333;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+}
+
+.projCat_item img{
+    position: absolute;
+    width: 100%;
+    height: 147px;
+    top: 0px;
+    left: 0px;
+    display: none;
+}
+
+.projCat_title{
+    color: #fff;
+    font-size: 12px;
+    top: 80px;
+    left: 8px;
+    position: absolute;
+    padding: 3px 0px;
+    background: #111;
+    width: 95px;
+    display: block;
+    z-index: 11;
+    -moz-box-shadow: 1px 1px 4px #000;
+    -webkit-box-shadow: 1px 1px 4px #000;
+    box-shadow: 1px 1px 4px #000;
+}
+
+.projCat_desc ul{
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 0px;
+    text-align: left;
+    background: #000;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    z-index: 13;
+    display: none;
+    overflow: hidden;
+}
+
+.projCat_desc ul li{
+    color: #FFFF99;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.project_container{
+    width:85%;
+    height:94%;
+    margin: 2px;
+    border:1px solid #E6E6AF;
+    padding: 5px;
+    position:absolute;
+    top: 2px;
+    left:-100%;
+    overflow: auto;
+    background-color: #fff;
+    -moz-box-shadow:4px 0 7px #444;
+    -webkit-box-shadow:4px 0 7px #444;
+    box-shadow:4px 0 7px #444;
+}
+
+span.go_back{
+    position: relative;
+    /*top: 0px;
+    right: 0px;*/
+    float: right;
+    cursor: pointer;
+    display:none;
+}
+
+#close{
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    right: 0px;
+    top: -4px;
+}
+
+.project_content{
+    margin:5px 5px 5px 10px;
+    border: 0px solid #000;
+    padding: 5px;
+    width:95%;
+    height:92%;
+    display:none;
+    text-align: left;
+    font-size: 12px;
+    background-color: #d8d5cd;
+    overflow: inherit;
+}
+
+.project_content_header h3{
+    color: #fff;
+}
+
+.project_desc{
+    margin: 1px;
+    border: 1px solid #FAF6ED;
+    padding: 5px;
+    float: left;
+    width: 31.8%;
+    background-color: #FAF6ED;
+    color: #001D4C;
+    text-align: justify;
+    text-transform: none;
+}
+
+.project_list{
+    padding: 0px;
+    float: right;
+    width: 61.8%;
+}
+
+.project_desc, .project_list{
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
+.project_list table thead tr{
+    font-weight: bold;
+    background-color: #141413;
+    color: #fff;
+}
+
+.project_list table tr td{
+    margin: 2px;
+    padding: 4px 10px 4px 8px;
+}

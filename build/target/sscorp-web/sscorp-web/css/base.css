@@ -1,0 +1,318 @@
+/*
+    Document   : sscorp-style
+    Created on : 8 Aug, 2010, 10:27:10 PM
+    Author     : bhaskar
+    Description:
+        Common styles for all the pages in Super Sales Corporation.
+*/
+
+.mainBody {
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    border: 0px solid #000;
+    padding: 5px;
+    color: #000;
+    background-color: #fff;
+    font-family: "Helvetica Rounded", "Trebuchet MS", "sans-serif";
+    font-size: 11px;
+    float: none;
+    position: relative;
+}
+
+div.headerDiv{
+    margin: 0px;
+    border: 0px solid #000;
+    padding : 0px;
+    position: relative;
+    background-color:#fff;
+    line-height: 20px;
+    text-align: center;
+    overflow: visible;
+    height: 100%;
+}
+
+div.companyLogo{
+    margin: 0px 2px 2px 2px;
+    border: 0px solid #000;
+    width: 22.8%;
+    float: left;
+    position: relative;
+    height: 100%;
+}
+
+div.companyLogo img{
+    border: 0px solid #000;
+}
+
+div.companyInfo{
+    border: 0px solid #000;
+    float: right;
+    width: 70%;
+}
+
+div.latestInfo{
+    margin: 0px;
+    border: 0px solid #000;
+    float: left;
+    width: 45%;
+    text-align: center;
+}
+
+div.latestInfo span{
+    padding: 2px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #153E7E;
+}
+
+div.companyName{
+    margin: 0px 2px 2px 2px;
+    border: 0px solid #000;
+    padding: 0px 8px 0px 0px;
+    float:right;
+    color: #153E7E;
+}
+
+div.companyName h1{
+    margin: 0px;
+    border: 0px solid #000;
+    padding: 0px;
+    font-size: 22px;
+    font-style: normal;
+    font-variant: small-caps;
+}
+
+div.banner{
+    border: 0px solid #000;
+    padding-top: 0px;
+    padding-bottom: 2px;
+}
+
+div.banner img{
+    width: 100%;
+}
+
+div.breadCrumbDiv{
+    margin: 2px;
+    padding: 0px 0px 4px 4px;
+    overflow: auto;
+}
+
+div.breadCrumbLinks{
+    padding: 4px;
+    width: 25.2%;
+    text-align: left;
+    color: #153E7E;
+    float: left;
+    position: relative;
+}
+
+div.breadCrumbLinks a:link{
+    text-decoration:none;
+    color: #0a2041;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+div.breadCrumbLinks a:visited{
+    color: #153E7E;
+    font-weight:bold;
+}
+
+div.breadCrumbLinks a:hover{
+    color: #e6bd7e;
+    font-weight: bold;
+    text-decoration:underline;
+}
+
+div.breadCrumbLinks a:active{
+    color: #616161;
+}
+
+div.globalMessages{
+    padding: 4px;
+    width: 40%;
+    float: left;
+    background-color: #668BB2;
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+}
+
+div.contentDiv{
+    margin: 1px;
+    border: 2px solid #CCCCCC;
+    padding : 5px;
+    position: relative;
+    float: none;
+    clear: left;
+    background-color: #CCCCCC;
+    line-height: 20px;
+    text-align: center;
+}
+
+div.footerDiv{
+    margin: 5px 2px 2px 2px;
+    border: 0px solid #00317F;
+    padding: 5px 10px;
+    text-align: right;
+    font-weight: bold;
+    /*background-color: #00317F;*/
+    line-height: 20px;
+    font-variant:small-caps;
+    color: #0a2041;
+}
+
+div.footerDiv a:link{
+    color: #0a2041;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+div.footerDiv a:hover{
+    color: #153E7E;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.roundedCorner{
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius : 0.8em;
+    border-radius : 0.8em;
+    -moz-box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3{
+    margin: 0px 0px 3px 0px;
+    padding:2px 10px;
+    color:#153E7E;
+    font-size: 18px;
+    font-style:oblique;
+    font-weight:bold;
+    font-variant:small-caps;
+    text-align: left;
+}
+
+.page-heading{
+    border-bottom: 1px solid #5FABF7;
+    font-size: 16px;
+    color:#fff;
+    font-weight: bold;
+    background-color: #153E7E;
+    /*    text-align: center;*/
+}
+
+.page-heading-links{
+    cursor: pointer;
+    font:size: 12px;
+    text-transform: small-caps;
+    text-decoration: none;
+}
+
+.page-heading-links:hover{
+    text-decoration: underline;
+}
+
+.content-heading{
+    padding: 4px 4px 4px 6px;
+    border: 1px solid #E8E8E8;
+    background-color: #E8E8E8;
+    font-size: 12px;
+    font-weight:bold;
+    font-variant:small-caps;
+    color: #000;
+}
+
+.tableRowEven td{
+    background-color: #ccd5e3;
+}
+
+.tableRowOdd td{
+    background-color: #fff;
+}
+
+div.information{
+    overflow: auto;
+    text-align: left;
+    background-image: url('../images/contactus.jpg');
+}
+
+div.contactUs{
+    padding: 4px;
+    width: 30.2%;
+    float: left;
+    position: relative;
+}
+
+div.contactUs-content{
+    margin: 2px 0 0 0;
+    padding: 4px;
+    color: #fff;
+    background-color: #153E7E;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
+div.contactUs-content span{
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+div.enquiry {
+    padding: 4px;
+    color: #fff;
+    width: 67.3%;
+    float: right;
+    position: relative;
+}
+
+div.subjectandQuestion {
+    margin: 2px 0 0 0;
+    padding: 4px;
+    color: #fff;
+    background-color: #153E7E;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
+div#aboutUs{
+    background-image: url('../images/about_us.jpg');
+}
+
+div#leadership{
+	background-image: url('../images/leadership.jpg');
+}
+
+div#missionVission{
+	background-image: url('../images/mission-and-vision.jpg');
+	height: 250px;
+}
+
+.button{
+    padding: 4px;
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+    font-size: 12px;
+    -moz-border-radius: 0.6em;
+    -webkit-border-radius : 0.6em;
+    border-radius: 0.6em;
+    -moz-box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover{
+	border: 1px solid #222;
+    background-color: #222;
+}
+
+.display-none{
+    display: none;
+}
