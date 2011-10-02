@@ -6,7 +6,7 @@
 
 <%@include file="/jsp/include.jsp"%>
 
-<div id="leadership" class="profileContent roundedCorner">
+<div id="leadership" class="profileContent roundedCorner" style="border: 1px solid #1F3533;">
     <logic:present name="employeeList" scope="application">
         <div id="leadershipHeader" class="profileHeader roundedCorner">
             Leadership

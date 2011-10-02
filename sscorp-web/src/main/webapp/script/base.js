@@ -7,9 +7,9 @@
  * Function to be called on load of the page.
  */
 function init(){
-    new sscorp.Ajax("home.html", function(){
-
-    }, null, "contentDiv");
+//    new sscorp.Ajax("home.html", function(){
+//
+//    }, null, "contentDiv");
 
     new sscorp.Ajax("profile.html", function(){
         dynamicScriptLoader(this.req.responseText, "contentDiv");
@@ -17,6 +17,7 @@ function init(){
         new sscorp.Ajax("aboutUs.html", function(){
             document.getElementById("profileContentDiv").innerHTML =
             this.req.responseText;
+
         }, null, "profileContentDiv");
     }, null, "contentDiv");
 }
@@ -46,25 +47,34 @@ function dynamicScriptLoader(response, divId){
     sampleDiv.style.display = "none";
     document.body.appendChild(sampleDiv);
 
-    var d = document.getElementById("sampleDiv").getElementsByTagName("script");
-    var $javascriptUrl;
-
-    //simple display of content
+    //display the content
     document.getElementById(divId).innerHTML = response;
-
-    //Jquery based display of content
-    //    $("#" + divId).html(response)
-    //                    .fadeIn(5000, "swing");
-
-    for(var count = 0; count < d.length; count++){
-        $javascriptUrl = d[count].src;
-        //load the javascript files dynamically after the main
-        //index page has finished loading.
-        $.getScript($javascriptUrl, function(){
-            //custom code execution
-            //currently this function is being used by many other functions.
-            //cant add any custom code here. The code added has to be generic.
-            });
+    
+    var scriptDiv = null;
+    var $javascriptUrl = null;
+	
+    if(Browser.browser != null && Browser.browser == "MSIE"
+        && Browser.browserVersion < 9){
+	//IE HACK till IE8
+        var temp = sampleDiv.getElementsByTagName("div")[0];
+	scriptDiv = temp.getElementsByTagName("div");
+        for(var count = 0; count < scriptDiv.length; count++){
+            $javascriptUrl = scriptDiv[count].innerHTML;
+            //load the javascript files dynamically after the main
+            //index page has finished loading.
+            $.getScript($javascriptUrl, function(){});
+        }
+    }else{
+	//Code snippet for other browsers
+        scriptDiv = document.getElementById("sampleDiv")
+                            .getElementsByTagName("script");
+    
+        for(count = 0; count < scriptDiv.length; count++){
+            $javascriptUrl = scriptDiv[count].src;
+            //load the javascript files dynamically after the main
+            //index page has finished loading.
+            $.getScript($javascriptUrl, function(){});
+        }
     }
 
     //remove the dummy div from the body of the document.
@@ -244,6 +254,41 @@ function bannerImageRecursion(){
 	}
 }
 
+/*
+ * Definition for determining the browser name and version.
+ */
+var Browser = {
+    init: function(){
+        this.browser = this.detectBrowserName();
+        this.browserVersion = this.detectBrowserVersion();
+    },
+    
+    detectBrowserName: function(){
+        var userAgent = navigator.userAgent;
+        if(userAgent){
+            if(userAgent.indexOf("MSIE") != -1){
+                return "MSIE";
+            }else{
+                return "OTHER";
+            }
+        }
+    },
+    
+    detectBrowserVersion: function(){
+        var userAgent = navigator.userAgent;
+        var versionIndex = userAgent.indexOf("MSIE");
+        if(versionIndex == -1){
+            return null;
+        }
+        return parseFloat(userAgent.substring(versionIndex + "MSIE".length + 1));
+    }
+};
+
+Browser.init();
+
+/*
+ * Onload function
+ */
 window.onload = function(){
 	init();
     arr = document.getElementById("bannerImages").value.split("##");

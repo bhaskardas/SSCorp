@@ -10,6 +10,12 @@
         src="<%=request.getContextPath()%>/script/profile.js">
 </script>
 
+<div id="scriptUrl" style="display: none;">
+    <div>
+        <%=request.getContextPath()%>/script/profile.js
+    </div>
+</div>
+
 <div id="profileMainDiv" class="profileMainDiv roundedCorner">
     <div id="profileContentDiv" class="profileContentDiv">
     </div>

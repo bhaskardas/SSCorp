@@ -11,6 +11,12 @@
 <c:set var="image" value='<%=request.getParameter("projImage")%>'>
 </c:set>
 
+<span id="go_back" class="go_back">
+	<img id="close"
+ 		src="<%=request.getContextPath()%>/images/close.png"
+    	alt="Close"/>
+</span>
+
 <div id="project_content" class="project_content"
      style="background-image: url('${image}')">
     <logic:present name="projectCategories" scope="application">

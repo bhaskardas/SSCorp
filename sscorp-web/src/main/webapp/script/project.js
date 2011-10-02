@@ -13,12 +13,12 @@ $(function(){
     var $projectCatId;
 
     /**
-    bind the mouseenter, mouseleave to each project categories:
-    - shows / hides image and submenu
-    bind the click event to the list elements (submenu):
-    - hides all items except the clicked one,
-    and shows the content for that item
-    */
+     * bind the mouseenter, mouseleave to each project categories:
+     * - shows / hides image and submenu
+     * bind the click event to the list elements (submenu):
+     * - hides all items except the clicked one,
+     * and shows the content for that item
+     */
     $projectCategories
     .unbind("mouseenter")
     .bind("mouseenter",m_enter)
@@ -39,11 +39,11 @@ $(function(){
     });
 
     /**
-    mouseenter function for the project categories
-    the timeout is used to prevent this event
-    to trigger if the user moves the mouse with
-    a considerable speed through the project categories
-    */
+     * mouseenter function for the project categories
+     * the timeout is used to prevent this event
+     * to trigger if the user moves the mouse with
+     * a considerable speed through the project categories
+     */
     function m_enter(){
         var $this = $(this);
         clearTimeout(timeout);
@@ -66,7 +66,9 @@ $(function(){
         },200);
     }
 
-    //mouseleave function for the project categories
+    /**
+     * mouseleave function for the project categories
+     */
     function m_leave(){
         var $this = $(this);
         clearTimeout(timeout);
@@ -86,40 +88,14 @@ $(function(){
         }, 400);
     }
 
-    //back to project categories page - unfolds all the project categories
-    $("#go_back").bind("click",unfold);
-
     /**
-    hides all the project categories except the clicked one
-    after that, the content is shown
-    */
-    function fold($li_e){
-        var $item = $li_e.closest(".projCat_item");
-        var d = 100;
-        var step = 0;
-        $projectCategories.unbind("mouseenter mouseleave");
-        $projectCategories.not($item).each(function(){
-            var $item = $(this);
-            $item.stop()
-            .animate({
-                "marginLeft":"-12.4%"
-            }, d += 200,function(){
-                ++step;
-                if(step == count_projCat-1){
-                    folded = true;
-                    showContent();
-                }
-            });
-        });
-    }
-
-    /**
-	shows all the project categories
-	also hides any project category image / submenu
-	that might be displayed
-	*/
-    function unfold(){
-        $("#project_container")
+     * Back to project categories page - unfolds all the project categories.
+     * Shows all the project categories;
+     * Also hides any project category image / submenu
+     * that might be displayed.
+	 */
+    $("#go_back").live("click", function(e){
+    	$("#project_container")
         .stop()
         .animate({
             "left":"-100%"
@@ -157,12 +133,42 @@ $(function(){
             });
         });
         $("#go_back").css("display", "none");
+        
+        e.stopPropagation();
+        //IE Hack for stopping event propagation.
+        return false;
+    });
+
+    /**
+     * hides all the project categories except the clicked one
+     * after that, the content is shown
+     */
+    function fold($li_e){
+        var $item = $li_e.closest(".projCat_item");
+        var d = 100;
+        var step = 0;
+        $projectCategories.unbind("mouseenter mouseleave");
+        $projectCategories.not($item).each(function(){
+            var $item = $(this);
+            $item.stop()
+            .animate({
+                "marginLeft":"-12.4%"
+            }, d += 200,function(){
+                ++step;
+                if(step == count_projCat-1){
+                    folded = true;
+                    showContent();
+                }
+            });
+        });
     }
 
-    //function to show the content
+    /**
+     * function to show the content
+     */
     function showContent(){
         $("#project_container").stop().animate({
-            "left":"115px"
+            "left":"160px"
         },200,function(){
         new sscorp.Ajax("dispProjects.html?projectCategoryId=" +
             $projectCatId + "&projImage=" +
@@ -171,13 +177,18 @@ $(function(){
     	});
     }
 
+    /**
+     * 
+     */
     function callBack4ProjectList(){
         $("#project_container").html(this.req.responseText);
         $("#go_back").fadeIn();
         $(".project_content").fadeIn();
     }
 
-    //function to hide the content
+    /**
+     * function to hide the content
+     */
     function hideContent(){
         $("#project_content").find("div").hide();
         $("#project_container").find("div").html("").hide();

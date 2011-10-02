@@ -111,14 +111,15 @@ span.go_back{
 }
 
 #close{
-    position: absolute;
+	position: absolute;
     width: 23px;
     height: 23px;
-    right: 0px;
-    top: -4px;
+    right: -6px;
+    top: -5px;
 }
 
 .project_content{
+	position: relative;
     margin:5px 5px 5px 10px;
     border: 0px solid #000;
     padding: 5px;

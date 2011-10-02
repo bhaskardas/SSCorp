@@ -9,34 +9,34 @@
 div.profileMainDiv{
     overflow: hidden;
     position: relative;
-    clear: both;
-    height: 100%;
+    /*clear: both;
+    height: 100%;*/
     background-color: #153e7e;
 }
 
 div.profileContentDiv{
     margin: 1px;
     /*border: 1px solid #00317F;*/
-    padding: 4px;
+    padding: 4px 2px 4px 4px;
     float: left;
     position: relative;
-    width: 72%;
+    width: 72.2%;
 }
 
 div.profileMenuDiv{
     margin: 1px;
-    padding: 4px;
+    padding: 4px 4px 4px 2px;
     float: right;
     text-align: left;
     position: relative;
-    width: 25%;
+    width: 26.2%;
     overflow: auto;
 }
 
 div.profileMenuHeader{
     text-align: center;
     font-weight: bold;
-    margin: 7px 0 0 0;
+    margin: 2px 0 0 0;
     padding: 2px;
     background-color: #e6bd7e;
     color: #000;

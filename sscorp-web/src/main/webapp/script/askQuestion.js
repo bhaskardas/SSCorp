@@ -38,8 +38,10 @@ $(function(){
         //proceed with the save process and display the InProgress icon
         $("#saveInProcess").css("display", "block");
 
+        alert("sdfsdf");
         //make an ajax call to the server.
         new sscorp.Ajax("saveUserQuery.html", function(){
+        	alert("sdfsdf");
             $("#saveInProcess").css("display", "none");
             var response = this.req.getResponseHeader("message");
             if(response != null && response != ""){

@@ -20,7 +20,7 @@ sscorp.Ajax = function(url, callback, formName, divId, callback4Error){
     this.callback = callback;
 
     //assigns a default error callback function is error handler is null
-    this.callback4Error= (callback4Error) ? callback4Error : defaultCallback4Error;
+    this.callback4Error= callback4Error || defaultCallback4Error;
 
     this.formName = formName;
     this.req = null;
@@ -48,12 +48,12 @@ sscorp.Ajax = function(url, callback, formName, divId, callback4Error){
         alert("XMLHTTPRequest Not Supported");
     /* XMLHTTPRequest not supported */
     }
-}
+};
 
 /**
- * if no call is provided, then execute the default call back function
+ * if no callback is provided, then execute the default call back function
  */
-sscorp.Ajax.prototype.assignDefCallBackHandler = function(divId){
+sscorp.Ajax.prototype.assignDefCallBackHandler = function(){
     if(this.callback == null){
         if(this.divId == null){
             alert("No region found for refresh.");
@@ -62,7 +62,7 @@ sscorp.Ajax.prototype.assignDefCallBackHandler = function(divId){
             this.callback = defaultCallBack;
         }
     }
-}
+};
 
 /**
  * create the javascript XMLHttpRequest object
@@ -82,7 +82,7 @@ sscorp.Ajax.prototype.createRequest = function(){
             }
         }
     }
-}
+};
 
 /**
  * display the loader image till the request is processed
@@ -97,7 +97,7 @@ sscorp.Ajax.prototype.prepareAjaxLoader = function(){
 
         document.getElementById(this.divId).innerHTML = html;
     }
-}
+};
 
 /**
  * Go to the server to execute the request and fetch the response.
@@ -107,69 +107,74 @@ sscorp.Ajax.prototype.fireRequest = function(){
         try{
             var loader=this;
             this.req.onreadystatechange=function(){
-                sscorp.Ajax.onReadyState.call(loader);
+                sscorp.Ajax.prototype.onReadyState.call(loader);
             }
 
             this.req.open(this.reqMethod, this.url, true);
             this.req.setRequestHeader("Accept", "text/xml");
+            
+            //IE Hack
+            this.req.setRequestHeader("If-Modified-Since", "Fri, 1 Apr 2011 00:00:00 GMT");
             if(this.formName != null){
                 this.req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                var postData = sscorp.Ajax.getFormData.call(loader);
+                var postData = sscorp.Ajax.prototype.getFormData.call(loader);
                 this.req.send(postData);
             }else{
                 this.req.send(null);
             }
         }catch(e){
-            alert(e);
+            //alert(e);
         //this.callback4Error.call(this);
         }
     } else {
         alert("XMLHttpRequest object not created. Please Try again...");
     }
-}
+};
 
 /**
  * To check the status of the request that has been sent.
  */
-sscorp.Ajax.onReadyState = function(){
+sscorp.Ajax.prototype.onReadyState = function(){
     try{
         if (this.req.readyState == sscorp.READY_STATE_COMPLETE){
             if (this.req.status == 200 || this.req.status == 0){
+                //could have also been "this.callback();" - this would also work
                 this.callback.call(this);
             }else{
+                //could have also been "this.callback4Error();" - this would also work
                 this.callback4Error.call(this);
             }
         }
     }catch(e){
         alert(e);
     }
-}
+};
 
 /**
  * Find the form instance on the html page.
  */
-sscorp.Ajax.prototype.findForm = function(){
+sscorp.Ajax.prototype.findForm = function(formName){
     var form;
-    if(this.formName != null){
-        form = document.forms[this.formName];
+    if(formName != null){
+        form = document.forms[formName];
     }else{
         alert("Error: Form not found.");
         return false;
     }
 
     if(typeof form != "object"){
-        alert("Error: Form object with the name [" + this.formName + "] not found.");
+        alert("Error: Form object with the name [" + formName + "] not found.");
         return false;
     }
 
     return form;
-}
+};
 
 /**
  * Get the data from all the form elements for post submitting the reuqest.
  */
 sscorp.Ajax.getFormData = function(){
-    var form = this.findForm();
+    var form = sscorp.Ajax.prototype.findForm(this.formName);
     var postData = "";
     for ( var count = 0; count < form.elements.length; count++) {
         var element = form.elements[count];
@@ -198,14 +203,14 @@ sscorp.Ajax.getFormData = function(){
     }
 
     return postData;
-}
+};
 
 /**
  * Default call back handler
  */
 function defaultCallBack(){
     document.getElementById(this.divId).innerHTML = this.req.responseText;
-}
+};
 
 /**
  * Default error handler.
@@ -239,4 +244,4 @@ function defaultCallback4Error(){
                     be able to view the error message.");
         }
     }
-}
+};

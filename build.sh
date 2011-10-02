@@ -2,7 +2,7 @@
 
 echo Starting Build Processs
 echo Setting Target Directory
-export TARGET_DIR=/home/bhaskar/Projects/SSCorp/code/build
+export TARGET_DIR=/home/bhaskar/Projects/SSCorp/SSCorp/build
 echo Setting Target Directory Successful
 echo Setting Maven Local Repository
 export MAVEN_LOCAL_REPOSITORY=file:/home/bhaskar/.m2/repository

@@ -17,6 +17,12 @@
         src="<%=request.getContextPath()%>/script/product.js">
 </script>
 
+<div id="scriptUrl" style="display: none;">
+    <div>
+        <%=request.getContextPath()%>/script/product.js
+    </div>
+</div>
+
 <c:set var="prodCatId" value='<%=request.getParameter("productCatId")%>'></c:set>
 
 <logic:present name="productListByCat" scope="application">

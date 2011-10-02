@@ -14,7 +14,7 @@
         <target.dir>${env.TARGET_DIR}/target/${project.artifactId}</target.dir>
         <resource.dir>${project.basedir}/src/main/resources</resource.dir>
         <artifact.name>${project.artifactId}</artifact.name>
-        <deploy.dir.path>/usr/local/apache-tomcat-6.0.20/webapps</deploy.dir.path>
+        <deploy.dir.path>/usr/local/apache-tomcat-6.0.26/webapps</deploy.dir.path>
 
         <!-- Servlet Properties -->
         <servlet-api.version>2.5</servlet-api.version>
@@ -284,7 +284,14 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.0.2</version>
                 <configuration>
-                    <warSourceDirectory>${basedir}/src/main/webapp</warSourceDirectory>
+                    <webResources>
+						<resource>
+							<directory>${basedir}/src/main/WebContent</directory>
+						</resource>
+					</webResources>
+					<warSourceDirectory>${basedir}/src/main/WebContent</warSourceDirectory>
+					<warSourceExcludes>WebContent/WEB-INF/lib/*.jar</warSourceExcludes>
+					<archiveClasses>false</archiveClasses>
                 </configuration>
             </plugin>
         </plugins>

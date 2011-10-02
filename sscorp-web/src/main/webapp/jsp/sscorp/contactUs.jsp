@@ -10,6 +10,16 @@ src="<%=request.getContextPath()%>/script/askQuestion.js"></script>
 <script type="text/javascript"
 src="<%=request.getContextPath()%>/script/contactUs.js"></script>
 
+<%-- IE Hack --%>
+<div id="scriptUrl" style="display: none;">
+    <div>
+        <%=request.getContextPath()%>/script/askQuestion.js
+    </div>
+    <div>
+        <%=request.getContextPath()%>/script/contactUs.js
+    </div>
+</div>
+
 <%@ include file="/jsp/include.jsp"%>
 
 <div id="information" class="information roundedCorner">

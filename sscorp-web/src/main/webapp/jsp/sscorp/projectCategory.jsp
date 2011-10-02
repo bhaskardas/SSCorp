@@ -9,6 +9,12 @@
         src="<%=request.getContextPath()%>/script/project.js">
 </script>
 
+<div id="scriptUrl" style="display: none;">
+    <div>
+        <%=request.getContextPath()%>/script/project.js
+    </div>
+</div>
+
 <logic:present name="projectCategories" scope="application">
     <div id="projCat-header">
         <h2 class="page-heading roundedCorner">Project Categories</h2>
@@ -35,11 +41,11 @@
             </div>
         </logic:iterate>
         <div id="project_container" class="project_container roundedCorner"></div>
-        <span id="go_back" class="go_back">
+        <%--<span id="go_back" class="go_back">
             <img id="close"
                  src="<%=request.getContextPath()%>/images/close.png"
                  alt="Close"/>
-        </span>
+        </span>--%>
     </div>
 </logic:present>
 <logic:notPresent name="projectCategories" scope="application">
