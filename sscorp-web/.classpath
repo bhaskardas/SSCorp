@@ -42,6 +42,7 @@
   <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.6.0/slf4j-api-1.6.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-log4j12/1.6.0/slf4j-log4j12-1.6.0.jar"/>
   <classpathentry kind="src" path="/sscorp-core"/>
+  <classpathentry kind="src" path="/utilities"/>
   <classpathentry kind="var" path="M2_REPO/taglibs/standard/1.1.2/standard-1.1.2.jar"/>
   <classpathentry kind="var" path="M2_REPO/struts/struts/1.2.9/struts-1.2.9.jar"/>
   <classpathentry kind="var" path="M2_REPO/bhaskar/utilities/utilities/1.0.0/utilities-1.0.0.jar"/>

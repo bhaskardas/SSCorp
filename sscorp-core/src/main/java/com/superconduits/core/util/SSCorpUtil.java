@@ -1,4 +1,4 @@
-/*
+/**
  * Utility class for all of Super Sales Corporation.
  */
 
@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * @author: bhaskar
+ * @author: bhaskardas
  * @Since: on 20 July 2010
  * @version: 1.0
  * @changeLog:

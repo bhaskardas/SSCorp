@@ -1,4 +1,4 @@
-/*
+/**
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -9,7 +9,7 @@ import org.utilities.util.PropertiesUtil;
 
 /**
  *
- * @author bhaskar
+ * @author bhaskardas
  */
 public class ObjectGenerator implements Generator<Object>{
 

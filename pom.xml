@@ -286,11 +286,11 @@
                 <configuration>
                     <webResources>
 						<resource>
-							<directory>${basedir}/src/main/WebContent</directory>
+							<directory>${basedir}/src/main/webapp</directory>
 						</resource>
 					</webResources>
-					<warSourceDirectory>${basedir}/src/main/WebContent</warSourceDirectory>
-					<warSourceExcludes>WebContent/WEB-INF/lib/*.jar</warSourceExcludes>
+					<warSourceDirectory>${basedir}/src/main/webapp</warSourceDirectory>
+					<warSourceExcludes>webapp/WEB-INF/lib/*.jar</warSourceExcludes>
 					<archiveClasses>false</archiveClasses>
                 </configuration>
             </plugin>

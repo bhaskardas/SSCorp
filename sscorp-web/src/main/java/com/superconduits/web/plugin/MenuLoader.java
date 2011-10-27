@@ -5,20 +5,22 @@
 
 package com.superconduits.web.plugin;
 
-import com.superconduits.core.business.interfaces.IMenu;
-import com.superconduits.core.to.CompanyProfileTO;
-import com.superconduits.core.to.menu.MenuTO;
-import com.superconduits.core.util.SSCorpUtil;
-import java.io.IOException;
 import java.util.List;
-import java.util.logging.Level;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionServlet;
 import org.apache.struts.action.PlugIn;
 import org.apache.struts.config.ModuleConfig;
 import org.utilities.util.PropertiesUtil;
+import org.utilities.util.exceptions.PropertiesException;
+
+import com.superconduits.core.business.interfaces.IMenu;
+import com.superconduits.core.to.CompanyProfileTO;
+import com.superconduits.core.to.menu.MenuTO;
+import com.superconduits.core.util.SSCorpUtil;
 
 /**
  * @author bhaskar
@@ -57,10 +59,14 @@ public class MenuLoader implements PlugIn{
         String[] imagePath = null;
         try {
             imagePath = PropertiesUtil.readProperty("sscorp-config", "menuImagePath").split(",,");
-        } catch (IOException ex) {
-            java.util.logging.Logger.getLogger(MenuLoader.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(MenuLoader.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (PropertiesException e) {
+        	//TODO: show the exception in the front end. Make a error codes file and use it. 
+			e.printStackTrace();
+		}
+        
+        if(imagePath == null){
+        	//TODO: throw SSCorpException ("null value");
+        	//TODO: propagate to front end.
         }
 
         try {

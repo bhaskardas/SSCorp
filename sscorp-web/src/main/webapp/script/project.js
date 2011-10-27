@@ -168,7 +168,7 @@ $(function(){
      */
     function showContent(){
         $("#project_container").stop().animate({
-            "left":"160px"
+            "left":"115px"
         },200,function(){
         new sscorp.Ajax("dispProjects.html?projectCategoryId=" +
             $projectCatId + "&projImage=" +
